@@ -1,0 +1,39 @@
+version: '3'
+services:
+  shop-db2:
+    image: fpiper/shop-db2
+    expose:
+      - "5000"
+    networks:
+      - shop-db
+    volumes:
+      - shop-db-data:/srv/shop-db2/shopdb
+    environment:
+      - SECRET_KEY=JanFrederikIstWinkelHipster
+      - DB_FIRSTNAME=John
+      - DB_LASTNAME=Doe
+      - DB_PASSWORD=admin123
+  shop-db2-frontend:
+    image: fpiper/shop-db2-frontend
+    ports:
+      - "4200:4200"
+    networks:
+      - shop-db
+    environment:
+      - HOST=shop-db2
+      - PORT=5000
+  shop-db2-admin:
+    image: fpiper/shop-db2-admin
+    ports:
+      - "4199:4200"
+    networks:
+      - shop-db
+    environment:
+      - HOST=shop-db2
+      - PORT=5000
+
+volumes:
+  shop-db-data:
+
+networks:
+  shop-db:

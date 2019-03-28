@@ -1,0 +1,51 @@
+To run all shop-db2 containers with appropriate settings use the
+docker-compose file and start with
+#+begin_src shell
+docker-compose up
+#+end_src
+
+Build the docker images with
+#+begin_src shell
+git clone git@github.com:fpiper/docker-shop-db2.git
+cd docker-shop-db2
+./dockerbuild.sh
+#+end_src
+
+* [[https://github.com/g3n35i5/shop-db2][shop-db2]] docker image
+
+You can run this image from dockerhub:
+#+begin_src shell
+docker run -it -p 5000:5000 --name=shop-db2 fpiper/shop-db2
+#+end_src
+
+Start a container with
+#+begin_src shell
+docker run -it -p 5000:5000 --name=shop-db2 shop-db2
+#+end_src
+Environment variables:
+| SECRET_KEY   |
+| DB_FIRSTNAME |
+| DB_LASTNAME  |
+| DB_PASSWORD  |
+
+* [[https://github.com/g3n35i5/shop-db2-admin][shop-db2-admin]] docker image
+
+You can run this image from dockerhub:
+#+begin_src shell
+docker run -it -p 4200:4200 --name=shop-db2 fpiper/shop-db2-admin
+#+end_src
+
+Environment variables:
+| HOST | Backend address |
+| PORT | Backend port    |
+
+* [[https://github.com/g3n35i5/shop-db2-frontend][shop-db2-frontend]] docker image
+
+You can run this image from dockerhub:
+#+begin_src shell
+docker run -it -p 4200:4200 --name=shop-db2 fpiper/shop-db2-frontend
+#+end_src
+
+Environment variables:
+| HOST | Backend address |
+| PORT | Backend port    |
