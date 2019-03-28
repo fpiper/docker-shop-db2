@@ -9,8 +9,7 @@ RUN cd /srv && \
     cd shop-db2-admin && \
     npm install && \
     npm run build && \
-    sed -i 's/ng serve/ng serve --port 4200 --host 0.0.0.0/g' package.json && \
-    node -e "const json = JSON.parse(require('fs').readFileSync('angular.json'));json.projects['shop-db-admin'].architect.serve.options.proxyConfig='proxy.conf.json';fs.writeFileSync('./angular.json', JSON.stringify(json, null, '  '));"
+    sed -i 's/ng serve/ng serve --port 4200 --host 0.0.0.0/g' package.json
 
 EXPOSE 4200
 
