@@ -18,7 +18,7 @@ RUN apt update && \
 # get shop-db
 RUN useradd -r shopdb_user && \
     cd /srv && \
-    git clone https://github.com/fpiper/shop-db2.git && \
+    git clone https://github.com/g3n35i5/shop-db2.git && \
     chown -R shopdb_user:shopdb_user shop-db2
 
 # nginx
