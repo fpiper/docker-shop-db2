@@ -1,4 +1,4 @@
 #!/bin/bash
-docker push fpiper/shop-db2
-docker push fpiper/shop-db2-admin
-docker push fpiper/shop-db2-frontend
+docker push fpiper/shop-db2-armhf
+docker push fpiper/shop-db2-admin-armhf
+docker push fpiper/shop-db2-frontend-armhf

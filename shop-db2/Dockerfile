@@ -1,5 +1,7 @@
 # -*- conf -*-
-FROM python
+FROM balenalib/armv7hf-python:3.7.2-stretch-build-20190127
+
+RUN [ "cross-build-start" ]
 
 ENV DB_FIRSTNAME John
 ENV DB_LASTNAME Doe
@@ -44,3 +46,5 @@ EXPOSE 5000
 
 ADD image/run.sh /etc/init.d/run.sh
 ENTRYPOINT /etc/init.d/run.sh
+
+RUN [ "cross-build-end" ]

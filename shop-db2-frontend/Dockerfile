@@ -1,5 +1,7 @@
 # -*- conf -*-
-FROM node
+FROM balenalib/armv7hf-node
+
+RUN [ "cross-build-start" ]
 
 ENV HOST 172.0.0.1
 ENV PORT 5000
@@ -15,3 +17,5 @@ EXPOSE 4200
 
 ADD run.sh /etc/init.d/run.sh
 ENTRYPOINT /etc/init.d/run.sh
+
+RUN [ "cross-build-end" ]
