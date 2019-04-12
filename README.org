@@ -1,3 +1,10 @@
+* Introduction
+This repository provides docker images that run [[https://github.com/g3n35i5/shop-db2][shop-db2]]. 
+
+This git branch builds images for the ARM architecture and can be used
+for example on a raspberry pi. Using the [[https://www.balena.io/blog/building-arm-containers-on-any-x86-machine-even-dockerhub/][balena.io]] steps the images
+can be build on x86 architecture and run on ARM architecture.
+
 To run all shop-db2 containers with appropriate settings use the
 docker-compose file and start with
 #+begin_src shell
@@ -10,10 +17,10 @@ git clone git@github.com:fpiper/docker-shop-db2.git
 cd docker-shop-db2
 ./dockerbuild.sh
 #+end_src
+* Images
+** [[https://github.com/g3n35i5/shop-db2][shop-db2]] docker image
 
-* [[https://github.com/g3n35i5/shop-db2][shop-db2]] docker image
-
-You can run this image from dockerhub:
+To run this image from dockerhub:
 #+begin_src shell
 docker run -it -p 5000:5000 --name=shop-db2 fpiper/shop-db2
 #+end_src
@@ -28,9 +35,9 @@ Environment variables:
 | DB_LASTNAME  |
 | DB_PASSWORD  |
 
-* [[https://github.com/g3n35i5/shop-db2-admin][shop-db2-admin]] docker image
+** [[https://github.com/g3n35i5/shop-db2-admin][shop-db2-admin]] docker image
 
-You can run this image from dockerhub:
+To run this image from dockerhub:
 #+begin_src shell
 docker run -it -p 4200:4200 --name=shop-db2 fpiper/shop-db2-admin
 #+end_src
@@ -39,9 +46,9 @@ Environment variables:
 | HOST | Backend address |
 | PORT | Backend port    |
 
-* [[https://github.com/g3n35i5/shop-db2-frontend][shop-db2-frontend]] docker image
+** [[https://github.com/g3n35i5/shop-db2-frontend][shop-db2-frontend]] docker image
 
-You can run this image from dockerhub:
+To run this image from dockerhub:
 #+begin_src shell
 docker run -it -p 4200:4200 --name=shop-db2 fpiper/shop-db2-frontend
 #+end_src
