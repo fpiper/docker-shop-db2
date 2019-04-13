@@ -6,6 +6,8 @@ RUN [ "cross-build-start" ]
 ENV HOST 172.0.0.1
 ENV PORT 5000
 
+RUN apt update && apt install -y --no-recommends git
+
 RUN cd /srv && \
     git clone https://github.com/g3n35i5/shop-db2-admin && \
     cd shop-db2-admin && \
