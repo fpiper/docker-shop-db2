@@ -1,9 +1,9 @@
 version: '2'
 services:
   shop-db2:
-    image: fpiper/shop-db2-armhf
     expose:
       - "5000"
+    image: fpiper/shop-db2:arm
     networks:
       - shop-db
     volumes:
@@ -14,7 +14,7 @@ services:
       - DB_LASTNAME=Doe
       - DB_PASSWORD=admin123
   shop-db2-frontend:
-    image: fpiper/shop-db2-frontend-armhf
+    image: fpiper/shop-db2-frontend:arm
     ports:
       - "4200:4200"
     networks:
@@ -23,7 +23,7 @@ services:
       - HOST=shop-db2
       - PORT=5000
   shop-db2-admin:
-    image: fpiper/shop-db2-admin-armhf
+    image: fpiper/shop-db2-admin:arm
     ports:
       - "4199:4200"
     networks:
