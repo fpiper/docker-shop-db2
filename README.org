@@ -22,12 +22,7 @@ cd docker-shop-db2
 
 To run this image from dockerhub:
 #+begin_src shell
-docker run -it -p 5000:5000 --name=shop-db2 fpiper/shop-db2
-#+end_src
-
-Start a container with
-#+begin_src shell
-docker run -it -p 5000:5000 --name=shop-db2 shop-db2
+docker run -it -p 5000:5000 --name=shop-db2 fpiper/shop-db2:arm
 #+end_src
 Environment variables:
 | SECRET_KEY   |
@@ -39,7 +34,7 @@ Environment variables:
 
 To run this image from dockerhub:
 #+begin_src shell
-docker run -it -p 4200:4200 --name=shop-db2 fpiper/shop-db2-admin
+docker run -it -p 4200:4200 --name=shop-db2 fpiper/shop-db2-admin:arm
 #+end_src
 
 Environment variables:
@@ -50,7 +45,7 @@ Environment variables:
 
 To run this image from dockerhub:
 #+begin_src shell
-docker run -it -p 4200:4200 --name=shop-db2 fpiper/shop-db2-frontend
+docker run -it -p 4200:4200 --name=shop-db2 fpiper/shop-db2-frontend:arm
 #+end_src
 
 Environment variables:
