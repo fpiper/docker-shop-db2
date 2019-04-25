@@ -7,18 +7,22 @@ ENV HOST 172.0.0.1
 ENV PORT 5000
 
 # need build-essential and python to build node-sass
-RUN apt update && apt install -y --no-install-recommends git build-essential python
+RUN apt update && apt install -y --no-install-recommends git nginx build-essential python
 
 RUN cd /srv && \
     git clone https://github.com/g3n35i5/shop-db2-admin && \
     cd shop-db2-admin && \
-    npm install && \
-    npm run build && \
-    sed -i 's/ng serve/ng serve --port 4200 --host 0.0.0.0/g' package.json
+    npm install --prod
 
-EXPOSE 4200
+ADD shop-db-admin /etc/nginx/sites-available/default
+ADD environment.prod.ts  /srv/shop-db2-admin/src/environments/environment.prod.ts
 
-ADD run.sh /etc/init.d/run.sh
-ENTRYPOINT /etc/init.d/run.sh
+RUN cd /srv/shop-db2-admin && \
+    sed -i 's/ng build/ng build --prod/g' package.json && \
+    npm run build
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
 
 RUN [ "cross-build-end" ]

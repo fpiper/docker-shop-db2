@@ -16,7 +16,7 @@ services:
   shop-db2-frontend:
     image: fpiper/shop-db2-frontend:arm
     ports:
-      - "4200:4200"
+      - "4200:80"
     networks:
       - shop-db
     environment:
@@ -25,7 +25,7 @@ services:
   shop-db2-admin:
     image: fpiper/shop-db2-admin:arm
     ports:
-      - "4199:4200"
+      - "4199:80"
     networks:
       - shop-db
     environment:
