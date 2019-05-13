@@ -1,0 +1,30 @@
+server {
+  # http
+  listen 80 default_server;
+  listen [::]:80 default_server;
+  root /srv/shop-db2-frontend/dist/shop-db-frontend;
+  # return 301 https://$host$request_uri;
+
+  # https
+  # listen 443 ssl;
+  # server_name default;
+
+  # ssl_certificate     /etc/letsencrypt/live/inbsgifj5lq5ocdm.myfritz.net/fullchain.pem;
+  # ssl_certificate_key /etc/letsencrypt/live/inbsgifj5lq5ocdm.myfritz.net/privkey.pem;
+
+  # include /etc/letsencrypt/options-ssl-nginx.conf;
+
+  # if ($scheme != "https") {
+  #    return 301 https://$host$request_uri;
+  # }
+
+  location /api/ {
+  	   proxy_pass http://shop-db2:5000/;
+  }
+  location @rewrites {
+  	   rewrite ^(.+)$ /index.html last;
+  }
+  location / {
+  	   try_files $uri $uri/ @rewrites;
+  }
+}
