@@ -12,7 +12,8 @@ ENV SECRET_KEY YOURBETTERSUPERSECRETKEY
 RUN apt update && \
     apt install -y --no-install-recommends \
 	git \
-	nginx
+	nginx \
+	wkhtmltopdf
     	# python3 \
 	# python3-venv \
 	# python3-pip \
